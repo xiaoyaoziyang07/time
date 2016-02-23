@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+     <package name="sysservices"  extends="base">
+    	<action name="list" class="cn.amichina.timecomm.sysservices.action.SysServicesAction">
+		 	<result >/WEB-INF/jsp/system/sysservices.jsp</result> 
+    	</action>
+    	<action name="boosttype" class="cn.amichina.timecomm.decision.boosttype.BoostTypeAction">
+		 	<result >/WEB-INF/jsp/report/boosttype.jsp</result> 
+    	</action>
+    	<action name="boosttypedata" class="cn.amichina.timecomm.decision.boosttype.BoostTypeAction" method="data">
+		 	<result type="json">
+		 		<param name="ROOT">data</param>
+		 	</result> 
+    	</action>
+    </package>
+</struts>

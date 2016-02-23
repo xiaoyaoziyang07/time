@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="customerplan"  extends="base">
+    	<action name="hottestpackage" class="cn.amichina.timecomm.hottestpackage.action.HottestPackageAction">
+			<result >/WEB-INF/jsp/customerplan/hottestpackage.jsp</result>
+    	</action>
+    	<action name="hottestpackagedata" class="cn.amichina.timecomm.hottestpackage.action.HottestPackageAction" method="data">
+			<result name="toJson" type="json" />
+    	</action>
+    </package>
+</struts>
