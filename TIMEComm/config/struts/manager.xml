@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="manager" extends="base">
+    
+    	<action name="planbuilder" class="cn.amichina.timecomm.quota.planbuilder.PlanBuilderAction" method="page">
+			<result>/WEB-INF/jsp/quota/planbuilder.jsp</result>
+    	</action>
+    	<action name="planbuilderlist" class="cn.amichina.timecomm.quota.planbuilder.PlanBuilderAction" >
+			<result type="json"></result>
+    	</action>
+    	<action name="planbuilderdelete" class="cn.amichina.timecomm.quota.planbuilder.PlanBuilderAction" method="del">
+			<result type="json"></result>
+    	</action>
+    	<action name="planbuilderupdate" class="cn.amichina.timecomm.quota.planbuilder.PlanBuilderAction" method="upate">
+			<result type="json"></result>
+    	</action>
+    	<action name="planbuilderadd" class="cn.amichina.timecomm.quota.planbuilder.PlanBuilderAction" method="add">
+			<result type="json"></result>
+    	</action>
+    	
+    	<action name="topupvolumn" class="cn.amichina.timecomm.quota.topupvolumn.TopUpVolumnAction" >
+			<result>/WEB-INF/jsp/quota/topupvolumn.jsp</result>
+    	</action>
+    	<action name="topupvolumnlist" class="cn.amichina.timecomm.quota.topupvolumn.TopUpVolumnAction" method="list">
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+    	</action>
+    	<action name="topupvolumnadd" class="cn.amichina.timecomm.quota.topupvolumn.TopUpVolumnAction" method="add">
+			<result type="json">
+				<param name="root">tierPolicy</param>
+			</result>
+    	</action>
+    	<action name="topupvolumndel" class="cn.amichina.timecomm.quota.topupvolumn.TopUpVolumnAction" method="delete">
+			<result type="json"></result>
+    	</action>
+    	<action name="topupvolumnedit" class="cn.amichina.timecomm.quota.topupvolumn.TopUpVolumnAction" method="edit">
+			<result type="json"></result>
+    	</action>
+    	
+    	<action name="qfupplan" class="cn.amichina.timecomm.quota.qfupplan.action.QfupPlanAction" >
+			<result>/WEB-INF/jsp/quota/qfupplan.jsp</result>
+    	</action>
+    	<action name="qfupplanlist" class="cn.amichina.timecomm.quota.qfupplan.action.QfupPlanAction" method="pageQuery">
+			<result type="json"/>
+    	</action>
+    	<action name="qfupplanupdate" class="cn.amichina.timecomm.quota.qfupplan.action.QfupPlanAction" method="update">
+			<result type="json"/>
+    	</action>
+    	<action name="qfupplandelete" class="cn.amichina.timecomm.quota.qfupplan.action.QfupPlanAction" method="delete">
+			<result type="json"/>
+    	</action>
+    	<action name="qfupplanadd" class="cn.amichina.timecomm.quota.qfupplan.action.QfupPlanAction" method="addBlank">
+			<result type="json"/>
+    	</action>
+    	<action name="tierbasepolicy" class="cn.amichina.timecomm.quota.tierbaseplan.TierBasePolicyAction">
+			<result>/WEB-INF/jsp/quota/tierbasepolicy.jsp</result>
+    	</action>
+    	<action name="tierbasepolicylist" class="cn.amichina.timecomm.quota.tierbaseplan.TierBasePolicyAction" method="list">
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+    	</action>
+    	<action name="tierbasepolicyadd" class="cn.amichina.timecomm.quota.tierbaseplan.TierBasePolicyAction" method="add">
+			<result type="json">
+				<param name="root">tierPolicy</param>
+			</result>
+    	</action>
+    	<action name="tierbasepolicydel" class="cn.amichina.timecomm.quota.tierbaseplan.TierBasePolicyAction" method="delete">
+			<result type="json"></result>
+    	</action>
+    	<action name="tierbasepolicyedit" class="cn.amichina.timecomm.quota.tierbaseplan.TierBasePolicyAction" method="edit">
+			<result type="json"></result>
+    	</action>
+    	
+    	<action name="timebaseplan" class="cn.amichina.timecomm.quota.timebaseplan.TimeBasePlanAction" >
+			<result>/WEB-INF/jsp/quota/timebaseplan.jsp</result>
+    	</action>
+    	<action name="timebaseplanlist" class="cn.amichina.timecomm.quota.timebaseplan.TimeBasePlanAction" method="list">
+    		<result type="json">
+				<param name="root">map</param>
+			</result>
+    	</action>
+    	<action name="timebaseplanadd" class="cn.amichina.timecomm.quota.timebaseplan.TimeBasePlanAction" method="add">
+    		<result type="json">
+				<param name="root">msg</param>
+    		</result>
+    	</action>
+    	<action name="timebaseplandel" class="cn.amichina.timecomm.quota.timebaseplan.TimeBasePlanAction" method="delete">
+    		<result type="json">
+				<param name="root">msg</param>
+			</result>
+    	</action>
+    	<action name="timebaseplanedit" class="cn.amichina.timecomm.quota.timebaseplan.TimeBasePlanAction" method="edit">
+    		<result type="json"></result>
+    	</action>
+    	
+    	<action name="freeboost" class="cn.amichina.timecomm.quota.freeboost.action.FreeBoostAction" >
+			<result>/WEB-INF/jsp/quota/freeboost.jsp</result>
+    	</action>
+    	
+    	<action name="paidboost" class="cn.amichina.timecomm.quota.paidboost.action.PaidBoostAction" >
+			<result>/WEB-INF/jsp/quota/paidboost.jsp</result>
+    	</action>
+    	<action name="boostlist" class="cn.amichina.timecomm.quota.boost.action.BoostAction" >
+			<result type="json"/>
+    	</action>
+    	<action name="boostupdate" class="cn.amichina.timecomm.quota.boost.action.BoostAction" method="update">
+			<result type="json"/>
+    	</action>
+    	<action name="boostdel" class="cn.amichina.timecomm.quota.boost.action.BoostAction" method="delete">
+			<result type="json"/>
+    	</action>
+    	<action name="boostadd" class="cn.amichina.timecomm.quota.boost.action.BoostAction" method="add">
+			<result type="json"/>
+    	</action>
+    </package>
+</struts>

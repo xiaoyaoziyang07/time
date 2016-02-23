@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="bandwidth"  extends="base">
+    	<action name="trending" class="cn.amichina.timecomm.bandwidth.action.BandwidthAction">
+			<result >/WEB-INF/jsp/bandwidth/bandwidth.jsp</result>
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="customerplan" class="cn.amichina.timecomm.customerplan.action.CustomerPlanAction">
+			<result type="dispatcher" name="success">/WEB-INF/jsp/bandwidth/customerplan.jsp</result>
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="customerplanhourdown" class="cn.amichina.timecomm.customerplan.action.CustomerPlanDownloadAction" >
+    	<result type="stream">
+			<!-- 该参数指定二进制流的类型 -->
+				<param name="contentType">${resType}</param>
+				<!-- 指定返回inputStream 的方法 -->
+				<param name="inputName">target</param>
+				<param name="contentDisposition">attachment;filename=${resName}</param>
+				<!-- 控制文件下载时所缓冲的大小 -->
+				<param name="bufferSize">4096</param>
+			</result>
+    	</action>
+    </package>
+</struts>

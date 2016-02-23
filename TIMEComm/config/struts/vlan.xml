@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="vlan" extends="base">
+		<action name="query" class="cn.amichina.timecomm.vlan.action.VlanAction">
+			<result type="json" name="toJson" />
+		</action>
+		<action name="topvlan" class="cn.amichina.timecomm.topvlan.TopUserAction">
+			<result>/WEB-INF/jsp/report/topvlanbyuser.jsp</result>
+		</action>
+		<action name="topvlandata" class="cn.amichina.timecomm.topvlan.TopUserAction" method="data">
+			<result type="json">
+				<param name="ROOT">data</param>
+			</result>
+		</action>
+		
+		<action name="topapp" class="cn.amichina.timecomm.topapp.action.TopApplicationAction">
+			<result>/WEB-INF/jsp/report/topappbyvlan.jsp</result>
+		</action>
+		<action name="topappdata" class="cn.amichina.timecomm.topapp.action.TopApplicationAction" method="data">
+			<result type="json">
+				<param name="ROOT">data</param>
+			</result>
+		</action>
+		
+		<action name="topvlanservice" class="cn.amichina.timecomm.otherreport.topvlan.TopVlanAppAction">
+			<result>/WEB-INF/jsp/report/topvlanservice.jsp</result>
+		</action>
+		<action name="topvlanservicedata" class="cn.amichina.timecomm.otherreport.topvlan.TopVlanAppAction" method="data">
+			<result type="json">
+				<param name="ROOT">data</param>
+			</result>
+		</action>
+		
+		<action name="idmapping" class="cn.amichina.timecomm.decision.idmapping.action.IDMappingAction">
+			<result>/WEB-INF/jsp/report/idmapping.jsp</result>
+		</action>
+		<action name="idmappingdata" class="cn.amichina.timecomm.decision.idmapping.action.IDMappingAction" method="data">
+			<result type="json">
+				<param name="ROOT">data</param>
+			</result>
+		</action>
+		
+		<action name="usertrending" class="cn.amichina.timecomm.decision.usertrending.UserTrendingAction">
+			<result>/WEB-INF/jsp/report/usertrending.jsp</result>
+		</action>
+		<action name="usertrendingdata" class="cn.amichina.timecomm.decision.usertrending.UserTrendingAction" method="data">
+			<result type="json">
+				<param name="ROOT">data</param>
+			</result>
+		</action>
+		<action name="usertrendingusers" class="cn.amichina.timecomm.decision.usertrending.UserTrendingAction" method="findUser">
+			<result type="json">
+				<param name="ROOT">users</param>
+			</result>
+		</action>
+		
+		<action name="hottestsites" class="cn.amichina.timecomm.network.hottestsites.HottestSitesAction">
+			<result>/WEB-INF/jsp/report/networksite.jsp</result>
+		</action>
+		<action name="hottestsitesdata" class="cn.amichina.timecomm.network.hottestsites.HottestSitesAction" method="data">
+			<result type="json">
+				<param name="ROOT">data</param>
+			</result>
+		</action>
+	</package>
+</struts>

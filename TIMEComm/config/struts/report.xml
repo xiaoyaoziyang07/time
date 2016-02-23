@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="report"  extends="base">
+    	<action name="sertj" class="cn.amichina.timecomm.report.sertj.action.SertjReportAction" >
+			<result>/WEB-INF/jsp/report/subureport.jsp</result>
+    	</action>
+    	<action name="plusrservice" class="cn.amichina.timecomm.report.plusrservice.action.PlusrServiceAction" >
+			<result>/WEB-INF/jsp/report/subMonitor.jsp</result>
+    	</action>
+    	<action name="plusrservicedata" class="cn.amichina.timecomm.report.plusrservice.action.PlusrServiceAction" method="data">
+			<result type="json"/>
+    	</action>
+    	<action name="plusrservicetable" class="cn.amichina.timecomm.report.plusrservice.action.PlusrServiceAction" method="tabledata">
+			<result type="json"/>
+    	</action>
+    	<action name="plusrservicestatistics" class="cn.amichina.timecomm.report.plusrservice.plusrstatistics.action.PlusrServiceStatisticsAction">
+			<result>/WEB-INF/jsp/report/serviceStatus.jsp</result>
+    	</action>
+    	<action name="plusrservicestatisticsdata" class="cn.amichina.timecomm.report.plusrservice.plusrstatistics.action.PlusrServiceStatisticsAction" method="serviceStatus">
+			<result type="json"/>
+    	</action>
+    	<action name="top" class="cn.amichina.timecomm.report.topreport.action.TopReportAction">
+			<result>/WEB-INF/jsp/report/top.jsp</result>
+    	</action>
+    	<action name="topdata" class="cn.amichina.timecomm.report.topreport.action.TopReportAction" method="data">
+			<result type="json"/>
+    	</action>
+    	<action name="topbytop" class="cn.amichina.timecomm.report.topreportbytop.action.TopReportByTopAction">
+			<result>/WEB-INF/jsp/report/topbytop.jsp</result>
+    	</action>
+    	<action name="topbytopdata" class="cn.amichina.timecomm.report.topreportbytop.action.TopReportByTopAction" method="data">
+			<result type="json"/>
+    	</action>
+    	<action name="hottestsites" class="cn.amichina.timecomm.hottestsites.action.HottestSitesAction" >
+			<result>/WEB-INF/jsp/report/hottestsites.jsp</result>
+    	</action>
+    	<action name="numberofsubs" class="cn.amichina.timecomm.numberofsubs.action.NumberOfSubsAction" >
+			<result>/WEB-INF/jsp/report/numberofsubs.jsp</result>
+    	</action>
+    	<action name="throttletype" class="cn.amichina.timecomm.throttletype.action.ThrottleTypeAction" >
+			<result>/WEB-INF/jsp/report/throttletype.jsp</result>
+    	</action>
+    	<action name="throttletypedata" class="cn.amichina.timecomm.throttletype.action.ThrottleTypeAction" method="data" >
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="locationreport" class="cn.amichina.timecomm.locationreport.action.LocationReportAction" >
+			<result>/WEB-INF/jsp/report/locationreport.jsp</result>
+    	</action>
+    	<action name="locationreportdata" class="cn.amichina.timecomm.locationreport.action.LocationReportAction" method="data">
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="userthroughput" class="cn.amichina.timecomm.userthroughput.action.UserThroughputAction">
+			<result>/WEB-INF/jsp/report/userthroughput.jsp</result>
+    	</action>
+    	<action name="monitorUserList" class="cn.amichina.timecomm.userthroughput.action.UserThroughputAction" method="monitorUserList">
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="updateMonitorUser" class="cn.amichina.timecomm.userthroughput.action.UserThroughputAction" method="updateMonitorUser">
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="addMonitorUser" class="cn.amichina.timecomm.userthroughput.action.UserThroughputAction" method="addMonitorUser">
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="realTimeMonitorUserData" class="cn.amichina.timecomm.userthroughput.action.UserThroughputAction" method="realTimeMonitorUserData">
+			<result name="toJson" type="json" />
+    	</action>
+    	<action name="realTimeMonitorData" class="cn.amichina.timecomm.userthroughput.action.UserThroughputAction" method="realTimeData" />
+    </package>
+</struts>

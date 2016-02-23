@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="i18n/message"/> 
+	<constant name="struts.multipart.maxSize" value="10000000" />
+	<package name="base" namespace="/" extends="struts-default,json-default">
+	<interceptors>
+			<!-- 插入一个自定义拦截器 -->
+			<interceptor name="auth" class="cn.amichina.timecomm.sys.interceptor.AuthInterceptor">
+				<param name="allowAction">login</param>
+			</interceptor>
+			<!-- 插入一个自定义拦截器 -->
+			<interceptor name="openSession" class="cn.amichina.timecomm.sys.interceptor.OpenSessionInViewInterceptor" />
+			<!-- 在系统的默认拦截器栈中，添加了权限控制 -->
+			<interceptor-stack name="authStack">
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="auth" />
+			<interceptor-ref name="openSession" />
+			<interceptor-ref name="json"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="authStack" />
+ 		<global-results>
+			<result name="login" type="dispatcher">/WEB-INF/jsp/system/session_timeout.jsp</result>
+		</global-results> 
+		<action name="home" class="cn.amichina.timecomm.user.action.HomeAction">
+			<result>/WEB-INF/jsp/index.jsp</result>
+		</action>
+	</package>
+ 	<include file="struts/bandwidth.xml"/> 
+	<include file="struts/user.xml"/>
+	<include file="struts/download.xml"/>
+	<include file="struts/report.xml"/>
+	<include file="struts/quota.xml"/>
+	<include file="struts/util.xml"/>
+	<include file="struts/sysservices.xml"/> 
+	<include file="struts/vlan.xml"/> 
+	<include file="struts/test2.xml"/>
+	<include file="struts/servicestatus/service.xml"/>
+	<include file="struts/apistatus/apistatusMonitor.xml"/>
+	<include file="struts/customerplan.xml"/>
+	<include file="struts/manager.xml"/>
+</struts>
+	 <!-- <include file="struts/sysservices.xml"/> --> 
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>dtree</title>
+    <link rel="Stylesheet" href="dtree.css" type="text/css" />
+    <script type="text/javascript" src="dtree.js"></script>
+</head>
+<body>
+    <h2>Example</h2>
+    <div class="dtree">
+        <p><a href="javascript: a.openAll();">open all</a> | <a href="javascript: a.closeAll();">close all</a></p>
+    </div>
+    <div><input id="txtTree" type="text" /></div>
+    <div id='dtree' class='dtree'></div>
+    <script type="text/javascript">
+        a = new dTree('a', 'dtree');
+        a.add(0, -1, '');
+        a.add(1, 0, 'Node 1', "javascript:;");
+		a.add(2, 0, 'Node 2', "javascript:;");
+		a.add(3, 1, 'Node 1.1', 'javascript:;');
+		a.add(4, 0, 'Node 3', 'javascript:;');
+		a.add(5, 3, 'Node 1.1.1', 'javascript:;');
+		a.add(6, 5, 'Node 1.1.1.1', 'javascript:;');
+		a.add(7, 0, 'Node 4', 'javascript:;');
+		a.add(8, 1, 'Node 1.2', 'javascript:;');
+		a.add(15, 1, 'Node 1.3', 'javascript:;');
+		a.add(16, 1, 'Node 1.4', 'javascript:;');
+		a.add(17, 1, 'Node 1.5', 'javascript:;');
+		a.add(9, 0, 'My Pictures', 'javascript:;', 'Pictures I\'ve taken over the years');
+		a.add(10, 9, 'The trip to Iceland', 'javascript:;', 'Pictures of Gullfoss and Geysir');
+		a.add(11, 9, 'Mom\'s birthday', 'javascript:;', 'test', '', '', false, false);
+		a.add(12, 0, 'Recycle Bin');
+		a.draw();
+
+		a.toggleNode = function(id) {};
+
+		a.selectNode = function(node) {
+		    document.getElementById("txtTree").value = node.name;
+		};
+        
+    </script>
+    <a href="javascript:add(12);">add node test</a>
+    <a href="javascript:remove(11);">remove node test</a>
+    <a href="javascript:a.clearCookie()">clearCookie</a>
+
+    <script type="text/javascript">
+        function add(id) { 
+            a.add(13,id,'Node 15','javascript:void(0);',"temp");
+            a.add(14, id, 'Node 16', 'javascript:void(0);', "temp");
+            a.add(14, id, 'Node 16', 'javascript:void(0);', "temp"); 
+            a.draw();
+        }
+        function remove(id){
+            a.remove(id);
+            a.draw();
+        }
+    </script>
+    <div id='new'>
+    </div>
+</body>
+</html>

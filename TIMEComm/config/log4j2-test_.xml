@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %logger{36}.%M():%L%n%-5level: %msg %n" />
+		</Console>
+	</appenders>
+	<loggers>
+		<logger name="cn.amichina.timecomm.user.action.UserAction" level="trace" additivity="false">
+			<appender-ref ref="Console" />
+		</logger>
+		<root level="trace">
+			<appender-ref ref="Console" />
+		</root>
+	</loggers>
+</configuration>
