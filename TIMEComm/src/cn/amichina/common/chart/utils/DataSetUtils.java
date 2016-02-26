@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import cn.amichina.common.chart.series.ChartSeries;
 import cn.amichina.timecomm.util.LabelUtil;
 
 public class DataSetUtils {
@@ -94,5 +95,35 @@ public class DataSetUtils {
 			}
 		}
 		return values;
+	}
+	
+	public static double getMax(List<ChartSeries> dataset){
+		if(null==dataset||dataset.size()==0){
+			throw new IllegalArgumentException("参数异常");
+		}
+		double max = 0;
+		for(int i=0;i<dataset.size();i++){
+			for(int j=0;j<dataset.get(i).getValue().size();j++){
+				if(Double.parseDouble(dataset.get(i).getValue().get(j))>max){
+					max=Double.parseDouble(dataset.get(i).getValue().get(j));
+				}
+			}
+		}
+		return max;
+	}
+	
+	public static double getMin(List<ChartSeries> dataset){
+		if(null==dataset||dataset.size()==0){
+			throw new IllegalArgumentException("参数异常");
+		}
+		double min = 0;
+		for(int i=0;i<dataset.size();i++){
+			for(int j=0;j<dataset.get(i).getValue().size();j++){
+				if(Double.parseDouble(dataset.get(i).getValue().get(j))<min){
+					min=Double.parseDouble(dataset.get(i).getValue().get(j));
+				}
+			}
+		}
+		return min;
 	}
 }

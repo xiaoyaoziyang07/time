@@ -2,9 +2,7 @@ package cn.amichina.timecomm.network.hottestsites;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -15,9 +13,6 @@ import cn.amichina.common.chart.category.ChartCategory;
 import cn.amichina.common.chart.property.ChartProperties;
 import cn.amichina.common.chart.series.ChartSeries;
 import cn.amichina.common.chart.utils.DataSetUtils;
-import cn.amichina.timecomm.topvlan.dao.UserByVlanDao;
-import cn.amichina.timecomm.util.DateUtil;
-import cn.amichina.timecomm.util.LabelUtil;
 import cn.amichina.timecomm.vlan.dao.VlanDao;
 
 @Service
@@ -100,12 +95,11 @@ public class HottestSitesService {
 		ChartCategory category = new ChartCategory(labels);
 		List<ChartCategory> categories = new ArrayList<ChartCategory>();
 		categories.add(category);
-		Chart chart = new Chart(categories, chartSeries);
 		ChartProperties props = new ChartProperties();
 		props.setyAxisName("Count");
 		props.setCaption("Hottest Sites");
 		props.setShowLegend("0");
-		chart.setChart(props);
+		Chart chart = new Chart(props,categories, chartSeries);
 		return chart.drawColchart();
 	}
 }

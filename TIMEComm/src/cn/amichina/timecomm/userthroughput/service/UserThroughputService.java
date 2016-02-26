@@ -137,7 +137,6 @@ public class UserThroughputService {
 				chartSeriesList.add(new ChartSeries(topAppMap.get("appname").toString(),valsList));
 				servcieList.add(serviceId);
 			}
-			Chart chart =new Chart(categories, chartSeriesList);
 			ChartProperties charproperties =new ChartProperties();
 			StringBuilder sb = new StringBuilder();
 			///report/realTimeMonitorUserData
@@ -156,8 +155,8 @@ public class UserThroughputService {
 			charproperties.setLabelStep(lableSetp);
 			charproperties.setClickURL("javascript:;");
 			charproperties.setDataStreamURL(sb.toString());
-			charproperties.setRefreshInterval("300");;
-			chart.setChart(charproperties);
+			charproperties.setRefreshInterval("300");
+			Chart chart =new Chart(categories, chartSeriesList);
 			topUserAppsMap.put(showUsres.get(i),chart);
 		}
 		return topUserAppsMap;

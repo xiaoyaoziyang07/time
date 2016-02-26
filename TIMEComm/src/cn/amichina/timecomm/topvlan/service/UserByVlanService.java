@@ -57,7 +57,6 @@ public class UserByVlanService {
 				ChartSeries series = new ChartSeries(vlanName, date);
 				chartSeries.add(series);
 			}
-			Chart chart = new Chart(categories, chartSeries);
 			ChartProperties props = new ChartProperties();
 			if(chartSeries.size()!=0){
 				String[] dx = new String[2];
@@ -91,12 +90,12 @@ public class UserByVlanService {
 			props.setAnchorradius("3");
 			props.setConnectNullData("1");
 			props.setLinethickness("1");
-			chart.setChart(props);
+			Chart chart = new Chart(props,categories, chartSeries);
 //			Line line = new Line();
 //			List<Line> lines = new ArrayList<Line>();
 //			lines.add(line);
 //			return chart.drawChart(lines);
-			return chart.drawLineChart();
+			return chart.drawChart();
 			//小于等于7天程序段
 		} else {
 			List<String> labels = LabelUtil.labelsByHour(startDate, endDate);
@@ -124,7 +123,6 @@ public class UserByVlanService {
 				ChartSeries series = new ChartSeries(vlanName, date);
 				chartSeries.add(series);
 			}
-			Chart chart = new Chart(categories, chartSeries);
 			ChartProperties props = new ChartProperties();
 			props.setLabelStep(labels.size() / 12+"");
 			if(chartSeries.size()!=0){
@@ -159,13 +157,13 @@ public class UserByVlanService {
 			props.setAnchorradius("0");
 			props.setLinethickness("1");
 			props.setCanvasPadding("10");
-			chart.setChart(props);
+			Chart chart = new Chart(props,categories, chartSeries);
 //			Line line = new Line();
 //			List<Line> lines = new ArrayList<Line>();
 //			lines.add(line);
 //			return chart.drawChart(lines);
 //			return chart.drawChart();
-			return chart.drawLineChart();
+			return chart.drawChart();
 		}
 	}
 }

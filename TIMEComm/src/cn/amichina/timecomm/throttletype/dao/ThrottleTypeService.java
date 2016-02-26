@@ -71,13 +71,12 @@ public class ThrottleTypeService {
 		ChartCategory category = new ChartCategory(lableList);
 		List<ChartCategory> categories = new ArrayList<ChartCategory>();
 		categories.add(category);
-		Chart chart = new Chart(categories, chartSeriesList);
 		ChartProperties props = new ChartProperties();
 		props.setyAxisName("Traffic(GB)");
 		props.setCaption("Throttle Type");
 		props.setDecimals("3");
 		props.setShowLegend("0");
-		chart.setChart(props);
+		Chart chart = new Chart(props,categories, chartSeriesList);
 		return chart;
 	}
 	public  List<String>  getThrottlenameList(){

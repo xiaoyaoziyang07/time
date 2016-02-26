@@ -236,13 +236,12 @@ public class AppByVlanService {
 		ChartCategory category = new ChartCategory(chartLabels);
 		List<ChartCategory> categories = new ArrayList<ChartCategory>();
 		categories.add(category);
-		Chart chart = new Chart(categories, chartSeries);
 		ChartProperties props = new ChartProperties();
 		props.setyAxisName("Traffic(GB)");
 		props.setCaption("Hottest App");
 		props.setDecimals("3");
 		props.setShowLegend("0");
-		chart.setChart(props);
+		Chart chart = new Chart(props,categories, chartSeries);
 		return chart.drawColchart();
 	}
 }

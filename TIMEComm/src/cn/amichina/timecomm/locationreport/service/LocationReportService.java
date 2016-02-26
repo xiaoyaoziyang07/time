@@ -138,10 +138,8 @@ public class LocationReportService {
 		ChartProperties charproperties =new ChartProperties();
 		charproperties.setLabelStep(lableList.size() / 12+"");
 		
-		charts [0]=new Chart(categories,ulChartSeries);
-		charts [1]=new Chart(categories,dlChartSeries);
-		charts[0].setChart(charproperties);
-		charts[1].setChart(charproperties);
+		charts [0]=new Chart(charproperties,categories,ulChartSeries);
+		charts [1]=new Chart(charproperties,categories,dlChartSeries);
 		return charts;
 	}
 }

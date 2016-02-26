@@ -51,8 +51,7 @@ public class ChartAction extends ActionSupport {
 		
 		ChartProperties props = new ChartProperties();
 		props.setCaption("hello world");
-		Chart chart = new Chart(categories, chartSeries);
-		chart.setChart(props);
+		Chart chart = new Chart(props,categories, chartSeries);
 		this.data = chart.drawChart();
 		return SUCCESS;
 	}

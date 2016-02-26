@@ -13,18 +13,20 @@ import java.util.List;
 import cn.amichina.common.chart.category.ChartCategory;
 import cn.amichina.common.chart.property.ChartProperties;
 import cn.amichina.common.chart.series.ChartSeries;
-import cn.amichina.common.chart.trendline.Line;
-import cn.amichina.common.chart.trendline.TrendLine;
 
 /**
  * @author liyang
  */
 public class Chart {
 
-	private ChartProperties chart = new ChartProperties();
-	private List<ChartCategory> categories;
-	private List<ChartSeries> dataset;
-	private List<TrendLine> trendlines;
+	protected ChartProperties chart = new ChartProperties();
+	protected List<ChartCategory> categories;
+	protected List<ChartSeries> dataset;
+//	private List<TrendLine> trendlines;
+	
+	protected Chart(){
+		
+	}
 	/*
 	 * 构造函数
 	 */
@@ -33,8 +35,10 @@ public class Chart {
 		this.dataset = dataset;
 	}
 	
-	public void setChart(ChartProperties chart) {
+	public Chart(ChartProperties chart,List<ChartCategory> categories,List<ChartSeries> dataset){
 		this.chart = chart;
+		this.categories = categories;
+		this.dataset = dataset;
 	}
 	
 	/**
@@ -61,36 +65,6 @@ public class Chart {
 		return sb.toString();
 	}
 	
-	public String drawLineChart(){
-		trendlines = new ArrayList<TrendLine>();
-		List<Line> lines = new ArrayList<Line>();
-		for(int i=0;i<dataset.size();i++){
-			Line line = new Line();
-			double startValue = dataset.get(i).getRatio()[0]*0+dataset.get(i).getRatio()[1];
-			double endValue = dataset.get(i).getRatio()[0]*(dataset.get(0).getValue().size()-1)+dataset.get(i).getRatio()[1];
-			line.setStartvalue(String.valueOf(startValue));
-			line.setEndvalue(String.valueOf(endValue));
-			lines.add(line);
-		}
-//		chart.setYAxisMaxValue(String.valueOf(TrendLineUtils.maxValue(lines)));
-//		chart.setYAxisMinValue(String.valueOf(TrendLineUtils.minValue(lines)));
-		TrendLine trendline = new TrendLine();
-		trendline.setLines(lines);
-		trendlines.add(trendline);
-		StringBuilder sb = new StringBuilder();
-		sb.append("{");
-		sb.append(chart.toString());
-		sb.append(",\"categories\":");
-		sb.append(categories.toString());
-		sb.append(",\"dataset\":");
-		sb.append(dataset.toString());
-		sb.append(",\"trendlines\":");
-		sb.append(trendlines.toString());
-		sb.append("}");
-		return sb.toString();
-	}
-	
-
 	private String refact(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");

@@ -82,12 +82,11 @@ public class BoostPlanService {
 		ChartCategory category = new ChartCategory(labels);
 		List<ChartCategory> categories = new ArrayList<ChartCategory>();
 		categories.add(category);
-		Chart chart = new Chart(categories, chartSeries);
 		ChartProperties props = new ChartProperties();
 		props.setyAxisName("Count");
 		props.setCaption("Boost Type");
 		props.setShowLegend("0");
-		chart.setChart(props);
+		Chart chart = new Chart(props,categories, chartSeries);
 		return chart.drawColchart();
 //		return chart.drawChart();
 	}

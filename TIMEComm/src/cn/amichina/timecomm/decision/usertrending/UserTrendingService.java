@@ -79,14 +79,13 @@ public class UserTrendingService {
 		ChartCategory category = new ChartCategory(labels);
 		List<ChartCategory> categories = new ArrayList<ChartCategory>(1);
 		categories.add(category);
-		Chart chart = new Chart(categories, chartSeries);
 		ChartProperties props = new ChartProperties();
 		if(betDays<=7){
 			props.setLabelStep(String.valueOf(labels.size()/12));
 		}
 		props.setyAxisName("Traffic(MB)");
 		props.setDecimals("3");
-		chart.setChart(props);
+		Chart chart = new Chart(props,categories, chartSeries);
 		return chart.drawChart();
 	}
 }
